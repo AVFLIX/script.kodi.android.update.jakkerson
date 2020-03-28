@@ -217,13 +217,8 @@ class Installer(object):
             if eta < 0: eta = divmod(0, 60)
             else: eta = divmod(eta, 60)
             total   = (float(filesize) / (1024 * 1024))
-            
-            label   = '[B]Downloading:[/B] %s'%SETTINGS_LOC
-            label2  = '%.02f MB of %.02f MB'%(currently_downloaded,total)
-            label2 += ' | [B]Speed:[/B] %.02f Kb/s'%kbps_speed
-            label2 += ' | [B]ETA:[/B] %02d:%02d'%eta
-            
-            message = '[B]Downloading:[/B] %s\n%.02f MB of %.02f MB | [B]Speed:[/B] %.02f Kb/s | [B]ETA:[/B]' % (SETTINGS_LOC, currently_downloaded, total, kbps_speed)
+            message = '%.02f MB of %.02f MB | [B]Speed:[/B] %.02f Kb/s | ' % (currently_downloaded, total, kbps_speed)
+            message += '[B]ETA:[/B] %02d:%02d' % eta
             dia.update(int(percent), message)
         except Exception as e:
             log("pbhook failed! %s" + str(e), xbmc.LOGERROR)

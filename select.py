@@ -19,7 +19,7 @@ import traceback
 import xbmc, xbmcaddon, xbmcgui, xbmcvfs
 
 # Plugin Info
-ADDON_ID      = 'script.kodi.android.update'
+ADDON_ID      = 'script.kodi.android.update.jakkerson'
 REAL_SETTINGS = xbmcaddon.Addon(id=ADDON_ID)
 ADDON_NAME    = REAL_SETTINGS.getAddonInfo('name')
 ADDON_VERSION = REAL_SETTINGS.getAddonInfo('version')
