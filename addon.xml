@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.kodi.android.update.jakkerson" name="Jakkersons' Kodi Android Installer" version="1.0.0" provider-name="Jakkerson">
+<addon id="script.kodi.android.update.jakkerson" name="Jakkersons' Kodi Android Installer" version="1.0.1" provider-name="Jakkerson">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.six" version="1.0.0"/>
@@ -9,10 +9,11 @@
     <extension point="xbmc.python.script" library="default.py"/>
     <extension point="xbmc.service" library="service.py" start="login"/>
     <extension point="xbmc.addon.metadata">
+        <reuselanguageinvoker>true</reuselanguageinvoker>
         <summary lang="en_GB">Download and Install Kodi packages.</summary>
         <description lang="en_GB">Download and Install Kodi android packages; select from  Nightlies, Releases, Snapshots and Test-builds.</description>
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
-        <platform>all</platform>
+        <platform>android</platform>
         <source>https://github.com/Lunatixz/KODI_Addons/tree/master/script.kodi.android.update</source>
     </extension>
 </addon>
