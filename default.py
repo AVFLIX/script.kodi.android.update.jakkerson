@@ -210,14 +210,13 @@ class Installer(object):
         try: 
             percent = min(numblocks * blocksize * 100 / filesize, 100) 
             currently_downloaded = float(numblocks) * blocksize / (1024 * 1024) 
-            kbps_speed = numblocks * blocksize / (time.time() - start_time) 
-            if kbps_speed > 0: eta = (filesize - numblocks * blocksize) / kbps_speed 
-            else: eta = 0 
-            kbps_speed = kbps_speed / 1024 
+            bps_speed = numblocks * blocksize / (time.time() - start_time) 
+            eta = (filesize - numblocks * blocksize) / bps_speed if bps_speed > 0 else 0
+            kbps_speed = bps_speed / 1024
             if eta < 0: eta = divmod(0, 60)
             else: eta = divmod(eta, 60)
             total   = (float(filesize) / (1024 * 1024))
-            message = '%.02f MB of %.02f MB | [B]Speed:[/B] %.02f Kb/s | ' % (currently_downloaded, total, kbps_speed)
+            message = '%.02f MB of %.02f MB | [B]Speed:[/B] %.02f KB/s | ' % (currently_downloaded, total, kbps_speed)
             message += '[B]ETA:[/B] %02d:%02d' % eta
             dia.update(int(percent), message)
         except Exception as e:
