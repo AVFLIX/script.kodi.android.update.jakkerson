@@ -1,0 +1,4 @@
+kodi-addon-checker
+six
+simplecache
+beautifulsoup4
