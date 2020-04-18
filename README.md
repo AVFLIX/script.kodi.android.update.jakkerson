@@ -1,5 +1,6 @@
 # script.kodi.android.update.jakkerson
 
+![Codacy Badge](https://api.codacy.com/project/badge/Grade/53bc91c9195a4fb483f6abb702aee957)
 ![Build Status](https://api.travis-ci.com/AVFLIX/script.kodi.android.update.jakkerson.svg?branch=master)
 ![License](https://img.shields.io/badge/license-GPL--3.0--only-success.svg)
 ![Kodi Version](https://img.shields.io/badge/kodi-matrix%2B-success.svg)
