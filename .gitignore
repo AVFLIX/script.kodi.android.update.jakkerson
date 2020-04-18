@@ -1,2 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# unwanted extensions
+*.so
+*.txt
+*.md
 
 Thumbs.db
+.gitignore
