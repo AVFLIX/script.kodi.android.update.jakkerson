@@ -1,4 +1,3 @@
-future
 kodi-addon-checker
 six
 simplecache
