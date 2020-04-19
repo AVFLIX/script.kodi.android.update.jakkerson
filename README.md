@@ -7,4 +7,4 @@
 
 Download and Install Kodi android packages; select from  Nightlies, Releases, Snapshots and Test-builds.
 
-Forked from https://github.com/Lunatixz/KODI_Addons/tree/master/script.kodi.android.update
+![Forked from script.kodi.android.update by Lunatixz](https://github.com/Lunatixz/KODI_Addons/tree/master/script.kodi.android.update)

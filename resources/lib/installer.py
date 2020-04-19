@@ -67,6 +67,16 @@ def selectDialog(label, items, pselect=-1, uDetails=True):
     if select >= 0: return select
     return None
 
+
+class MyOpener(urllib.request.FancyURLopener):
+    version = 'Kodi 19'
+
+
+myopener = MyOpener()
+urlretrieve = MyOpener().retrieve
+urlopen = MyOpener().open
+
+
 socket.setdefaulttimeout(TIMEOUT)
 class Installer(object):
     def __init__(self):
@@ -101,7 +111,8 @@ class Installer(object):
             cacheResponce = self.cache.get(ADDON_NAME + '.openURL, url = %s'%url)
             if not cacheResponce:
                 request = urllib.request.Request(url)
-                cacheResponce = urllib.request.urlopen(request, timeout = TIMEOUT).read()
+                with urllib.request.urlopen(request, timeout = TIMEOUT) as response:
+                    cacheResponce = response.read()
                 self.cache.set(ADDON_NAME + '.openURL, url = %s'%url, cacheResponce, expiration=datetime.timedelta(minutes=5))
             return BeautifulSoup(cacheResponce, "html.parser")
         except Exception as e:
@@ -187,7 +198,8 @@ class Installer(object):
             if self.myMonitor.waitForAbort(1): return 
             try: 
                 if xbmcvfs.delete(path): return
-            except: pass
+            except BaseException:
+                pass
             
         
     def downloadAPK(self, url, dest):
@@ -196,7 +208,7 @@ class Installer(object):
         dia = xbmcgui.DialogProgress()
         fle = dest.rsplit('/', 1)[1]
         dia.create(ADDON_NAME, LANGUAGE(30002)%fle)
-        try: urllib.request.urlretrieve(url.rstrip('/'), dest, lambda nb, bs, fs: self.pbhook(nb, bs, fs, dia, start_time, fle))
+        try: urlretrieve(url.rstrip('/'), dest, lambda nb, bs, fs: self.pbhook(nb, bs, fs, dia, start_time, fle))
         except Exception as e:
             dia.close()
             xbmcgui.Dialog().notification(ADDON_NAME, LANGUAGE(30001), ICON, 4000)
