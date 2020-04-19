@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.kodi.android.update.jakkerson" name="Jakkersons' Kodi Android Installer" version="1.0.3" provider-name="Jakkerson">
+<addon id="script.kodi.android.update.jakkerson" name="Jakkersons' Kodi Android Installer" version="1.0.4" provider-name="Jakkerson">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.six" version="1.0.0"/>
