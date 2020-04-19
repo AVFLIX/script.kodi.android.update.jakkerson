@@ -110,8 +110,8 @@ class Installer(object):
         try:
             cacheResponce = self.cache.get(ADDON_NAME + '.openURL, url = %s'%url)
             if not cacheResponce:
-                request = urllib.request.Request(url)
-                with urllib.request.urlopen(request, timeout = TIMEOUT) as response:
+                req = urllib.request.Request(url)
+                with urllib.request.urlopen(req) as response:
                     cacheResponce = response.read()
                 self.cache.set(ADDON_NAME + '.openURL, url = %s'%url, cacheResponce, expiration=datetime.timedelta(minutes=5))
             return BeautifulSoup(cacheResponce, "html.parser")
